@@ -23,7 +23,7 @@ const FormUser = ({ createUser, infoUpdate, updateUser, setInfoUpdate, onClose }
       birthday: '',
     });
 
-    onClose(); // Cierra el formulario después de crear o actualizar el usuario
+    onClose(); 
   };
 
   return (
@@ -49,7 +49,7 @@ const FormUser = ({ createUser, infoUpdate, updateUser, setInfoUpdate, onClose }
         <input {...register('birthday')} type="date" id="birthday" />
       </div>
       <button type="submit">{infoUpdate ? 'Update' : 'Create'}</button>
-      <button type="button" onClick={onClose}>Close</button> {/* Botón de cierre */}
+      <button type="button" onClick={onClose}>Close</button> 
     </form>
   );
 };

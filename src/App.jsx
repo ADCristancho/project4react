@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import FormUser from './components/FormUser';
 import useFetch from './hooks/useFetch';
 import UserCard from './components/UserCard';
-import './App.css'; // Importar app.css
+import './App.css'; 
 
 function App() {
   const [infoUpdate, setInfoUpdate] = useState(null);

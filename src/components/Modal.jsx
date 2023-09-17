@@ -1,12 +1,13 @@
-// Modal.jsx
-
 import React from 'react';
 
 const Modal = ({ user, onClose, updateUser }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const updatedUserData = {
-      email: event.target.email.value,
+      email: event.target.email.value, 
+      first_name: event.target.first_name.value,
+      last_name: event.target.last_name.value, 
+      birthday: event.target.birthday.value,
     };
 
     updateUser("/users", user.id, updatedUserData);
@@ -20,6 +21,16 @@ const Modal = ({ user, onClose, updateUser }) => {
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
           <input type="email" id="email" defaultValue={user.email} />
+
+          <label htmlFor="first_name">First Name</label>
+          <input type="text" id="first_name" defaultValue={user.first_name} />
+
+          <label htmlFor="last_name">Last Name</label>
+          <input type="text" id="last_name" defaultValue={user.last_name} />
+
+          <label htmlFor="birthday">Birthday</label>
+          <input type="text" id="birthday" defaultValue={user.birthday} />
+
           <button type="submit">Update</button>
         </form>
         <button onClick={onClose}>Close</button>

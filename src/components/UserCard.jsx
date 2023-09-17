@@ -13,11 +13,11 @@ const UserCard = ({ user, deleteUser, setInfoUpdate, baseUrl }) => {
   };
 
   const handleDelete = () => {
-    // Llama a la función deleteUser con la ruta y el ID del usuario
+
     deleteUser("/users", user.id);
     
-    // Actualiza la lista de usuarios después de eliminar
-    updateApi("/users"); // O utiliza la función que obtiene los usuarios nuevamente
+    
+    updateApi("/users"); 
   };
 
   return (
