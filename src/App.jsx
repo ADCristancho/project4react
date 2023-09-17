@@ -8,10 +8,11 @@ function App() {
   const [infoUpdate, setInfoUpdate] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const baseUrl = 'https://users-crud.academlo.tech';
-  const [users, getUsers, createUser, deleteUser, updateUser] = useFetch(baseUrl);
+  const [infoApi, getApi, postApi, deleteApi, updateApi] = useFetch(baseUrl);
+
 
   useEffect(() => {
-    getUsers('/users');
+    getApi('/users');
   }, []);
 
   const handleCreateUserClick = () => {
@@ -32,22 +33,22 @@ function App() {
       {isFormVisible && (
         <div className="form-container">
           <FormUser
-            createUser={createUser}
+            createUser={postApi}
             infoUpdate={infoUpdate}
-            updateUser={updateUser}
+            updateUser={updateApi}
             setInfoUpdate={setInfoUpdate}
             onClose={handleFormClose}
           />
         </div>
       )}
       <div>
-        {users?.map((user) => (
+        {infoApi?.map((user) => (
           <div key={user.id} className="user-container">
             <UserCard
               user={user}
-              deleteUser={deleteUser}
+              deleteUser={deleteApi}
               setInfoUpdate={setInfoUpdate}
-              updateApi={updateUser}
+              updateApi={updateApi}
             />
           </div>
         ))}

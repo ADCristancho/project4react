@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Modal = ({ user, onClose, updateUser }) => {
+  const [isUpdating, setIsUpdating] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsUpdating(true);
+
     const updatedUserData = {
       email: event.target.email.value, 
       first_name: event.target.first_name.value,
@@ -10,8 +14,17 @@ const Modal = ({ user, onClose, updateUser }) => {
       birthday: event.target.birthday.value,
     };
 
-    updateUser("/users", user.id, updatedUserData);
-    onClose(); 
+    updateUser("/users", user.id, updatedUserData)
+      .then(() => {
+        // La actualización se ha completado con éxito, puedes cerrar el modal.
+        setIsUpdating(false);
+        onClose(); 
+      })
+      .catch((error) => {
+        // Manejar errores aquí
+        setIsUpdating(false);
+        console.error("Error al actualizar el usuario:", error);
+      });
   };
 
   return (
@@ -29,15 +42,16 @@ const Modal = ({ user, onClose, updateUser }) => {
           <input type="text" id="last_name" defaultValue={user.last_name} />
 
           <label htmlFor="birthday">Birthday</label>
-          <input type="text" id="birthday" defaultValue={user.birthday} />
+          <input type="date" id="birthday" defaultValue={user.birthday} />
 
-          <button type="submit">Update</button>
+          <button type="submit" disabled={isUpdating}>
+            {isUpdating ? 'Updating...' : 'Update'}
+          </button>
         </form>
-        <button onClick={onClose}>Close</button>
+        <button onClick={onClose} disabled={isUpdating}>Close</button>
       </div>
     </div>
   );
 };
 
 export default Modal;
-

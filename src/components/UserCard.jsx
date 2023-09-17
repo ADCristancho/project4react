@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Modal from "./Modal";
 import useFetch from '../hooks/useFetch';
@@ -13,11 +12,13 @@ const UserCard = ({ user, deleteUser, setInfoUpdate, baseUrl }) => {
   };
 
   const handleDelete = () => {
-
-    deleteUser("/users", user.id);
-    
-    
-    updateApi("/users"); 
+    deleteUser("/users", user.id)
+      .then(() => {
+        updateApi("/users"); 
+      })
+      .catch((error) => {
+        console.error("Error deleting user:", error);
+      });
   };
 
   return (
@@ -46,3 +47,4 @@ const UserCard = ({ user, deleteUser, setInfoUpdate, baseUrl }) => {
 };
 
 export default UserCard;
+
