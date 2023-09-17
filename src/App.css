@@ -1,6 +1,5 @@
+/* App.css */
 
-
-/* Estilo para el contenedor principal */
 .container {
   max-width: 800px;
   margin: 30px auto; /* Centra horizontalmente */
@@ -34,15 +33,15 @@ h1:hover {
 
 .card_users {
   display: inline-block;
-  margin: 20px; /* Ajusta el margen para separar las tarjetas */
+  margin: 20px;
 }
 
 form {
   width: 100%;
   max-width: 400px;
-  margin-top: 0; /* Elimina el margen superior para que no se superponga */
+  margin-top: 0;
   padding: 40px;
-  background-color: #f2e8e89b;
+  background-color: #f2e8e8;
   border: 0;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
@@ -71,4 +70,5 @@ button:hover {
   background-color: #0056b3;
 }
 
-  
+/* Agrega cualquier estilo adicional que necesites aquí */
+
