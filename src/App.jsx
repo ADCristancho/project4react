@@ -15,36 +15,41 @@ function App() {
   }, []);
 
   const handleCreateUserClick = () => {
-    setInfoUpdate(null); // Limpiar información de actualización
-    setIsFormVisible(true); // Mostrar el formulario al hacer clic en "Create User"
+    setInfoUpdate(null);
+    setIsFormVisible(true);
   };
 
   const handleFormClose = () => {
-    setIsFormVisible(false); // Ocultar el formulario al cerrar
+    setIsFormVisible(false);
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Users Crud</h1>
-      <button onClick={handleCreateUserClick}>Create User</button>
+      <button className="create-button" onClick={handleCreateUserClick}>
+        Create User
+      </button>
       {isFormVisible && (
-        <FormUser
-          createUser={createUser}
-          infoUpdate={infoUpdate}
-          updateUser={updateUser}
-          setInfoUpdate={setInfoUpdate}
-          onClose={handleFormClose}
-        />
+        <div className="form-container">
+          <FormUser
+            createUser={createUser}
+            infoUpdate={infoUpdate}
+            updateUser={updateUser}
+            setInfoUpdate={setInfoUpdate}
+            onClose={handleFormClose}
+          />
+        </div>
       )}
       <div>
         {users?.map((user) => (
-          <UserCard
-            key={user.id}
-            user={user}
-            deleteUser={deleteUser}
-            setInfoUpdate={setInfoUpdate}
-            updateApi={updateUser}
-          />
+          <div key={user.id} className="user-container">
+            <UserCard
+              user={user}
+              deleteUser={deleteUser}
+              setInfoUpdate={setInfoUpdate}
+              updateApi={updateUser}
+            />
+          </div>
         ))}
       </div>
     </div>
