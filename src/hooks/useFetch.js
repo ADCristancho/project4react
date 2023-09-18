@@ -8,7 +8,7 @@ const useFetch = (baseUrl) => {
   const getApi = (path) => {
     const url = `${baseUrl}${path}`;
     axios.get(url)
-      .then((res) => setInfoApi(res.data))
+      .then(res => setInfoApi(res.data))
       .catch((err) => console.log(err));
   };
 
@@ -16,8 +16,9 @@ const useFetch = (baseUrl) => {
   const postApi = (path, data) => {
     const url = `${baseUrl}${path}/`;
     axios.post(url, data)
-      .then(() => {
-        getApi(path);
+      .then(res => {
+        console.log(res.data)
+        setInfoApi([...infoApi, res.data])
       })
       .catch((err) => console.log(err));
   };
@@ -26,24 +27,28 @@ const useFetch = (baseUrl) => {
   const deleteApi = (path, id) => {
     const url = `${baseUrl}${path}/${id}/`;
     axios.delete(url)
-      .then(() => {
-        getApi(path);
-      })
-      .catch((err) => console.log(err));
-  };
+      .then(res => {
+        console.log(res.data)
+        setInfoApi(infoApi.filter(e => e.id !== id))
+      })  
+      .catch(err => console.log(err));
+  }
 
   // UPDATE
 
-
-  const updateApi = async (path, id, data) => {
+  const updateApi = (path, id, data) => {
     const url = `${baseUrl}${path}/${id}/`;
-    try {
-      await axios.put(url, data);
-      getApi(path);
-    } catch (err) {
-      console.log(err);
-    }
+    return axios.put(url, data)
+      .then((response) => {
+        // Hacer lo que necesitas con la respuesta si es necesario
+        return response.data; // Devuelve los datos actualizados si es necesario
+      })
+      .catch((error) => {
+        console.error(error);
+        throw error; // Lanza el error nuevamente para manejarlo en el componente
+      });
   };
+  
   
 
   return [infoApi, getApi, postApi, deleteApi, updateApi];

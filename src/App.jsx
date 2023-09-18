@@ -33,7 +33,7 @@ function App() {
       {isFormVisible && (
         <div className="form-container">
           <FormUser
-            createUser={postApi}
+            createUser={getApi}
             infoUpdate={infoUpdate}
             updateUser={updateApi}
             setInfoUpdate={setInfoUpdate}

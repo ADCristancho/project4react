@@ -15,8 +15,7 @@ const Modal = ({ user, onClose, updateUser }) => {
     };
 
     updateUser("/users", user.id, updatedUserData)
-      .then(() => {
-        // La actualización se ha completado con éxito, puedes cerrar el modal.
+      .then(res => {
         setIsUpdating(false);
         onClose(); 
       })
