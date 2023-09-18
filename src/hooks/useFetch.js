@@ -25,7 +25,7 @@ const useFetch = (baseUrl) => {
 
   // DELETE
   const deleteApi = (path, id) => {
-    const url = `${baseUrl}${path}/${id}/`;
+    const url = `${baseUrl}${path}/${id}/`
     axios.delete(url)
       .then(res => {
         console.log(res.data)
@@ -38,15 +38,12 @@ const useFetch = (baseUrl) => {
 
   const updateApi = (path, id, data) => {
     const url = `${baseUrl}${path}/${id}/`;
-    return axios.put(url, data)
-      .then((response) => {
-        // Hacer lo que necesitas con la respuesta si es necesario
-        return response.data; // Devuelve los datos actualizados si es necesario
+    axios.put(url, data)
+      .then((res) => {
+         console.log(res.data); 
+         setInfoApi(infoApi.map(e => e.id === id ? res.data : e))
       })
-      .catch((error) => {
-        console.error(error);
-        throw error; // Lanza el error nuevamente para manejarlo en el componente
-      });
+      .catch((err) => console.log(err));
   };
   
   

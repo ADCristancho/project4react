@@ -20,7 +20,6 @@ const Modal = ({ user, onClose, updateUser }) => {
         onClose(); 
       })
       .catch((error) => {
-        // Manejar errores aquí
         setIsUpdating(false);
         console.error("Error al actualizar el usuario:", error);
       });
