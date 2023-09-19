@@ -1,10 +1,13 @@
 *{
-
     margin-left: 1px;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    background-color: rgb(123, 95, 149);
+   margin: 0; 
+  padding: 0; 
+  background-image: url('../public/estoica.png'); 
+  background-size: cover;
+      
 }

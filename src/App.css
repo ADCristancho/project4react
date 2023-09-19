@@ -1,230 +1,206 @@
-
 .container {
-  font-family: Arial, sans-serif;
-  background-color: rgb(123, 95, 149);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 10px;
+  /* text-align: center; */
+}
+
+.title-container {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  padding: 10px;
+  clear: both; /* Agrega esta línea para forzar un salto de línea antes de los elementos */
+}
+
+.users-container {
+  display: inline-block;
+  overflow-x: auto;
+  flex-direction: row;
+  flex-wrap: nowrap;
   padding: 20px;
+  margin-left: 0;
+}
+
+.title-background {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.create-button {
+  display: block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.create-button:hover {
+  background-color: #0056b3;
+}
+
+.user-container {
+  display: inline-block;
+  background-color: rgb(172, 133, 209);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #cc0000;
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para UserCard */
+
+.user-card {
+  display: inline-block;
+  width: 300px;
+  height: 220px;
+  margin: 20px;
+  color: #f22d06;
+  text-decoration:underline;
+  background-color: #487952;
+}
+
+
+article {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #e80d0d;
+  padding: 20px;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: aqua;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para el Form */
+
+.container-form {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  background-color: #fff;
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  background-color: #0056b3;
   text-align: center;
 }
 
-  .title-container {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-    background-color: #cd4ca2;
-    padding: 10px;
-  }
-
-.users-container {
-  display: inline-flex;
-  overflow-x: auto; 
-  flex-direction: row;
-  flex-wrap: nowrap ; 
-  padding: 10px; 
-  margin-left: 20px;
-
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
- 
-  .title-background {
-    background-color: #007bff;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin: 10px;
-  }
-  
 
-  .create-button {
-    display: block;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 auto;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .create-button:hover {
-    background-color: #0056b3;
-  }
-  
+button:hover {
+  background-color: #0056b3;
+}
 
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
+label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
 
-  .user-container {
-    display: inline-block;
-    background-color: rgb(123, 95, 149);
-    padding: 20px;
-    margin: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  }
-  
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
-  .delete-button {
-    background-color: #ff0000;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .delete-button:hover {
-    background-color: #cc0000;
-  }
-  
-
-  .edit-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    margin-top: 10px;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .edit-button:hover {
-    background-color: #0056b3;
-  }
-  
-
-  /* estilos para UserCard  */
-
-  
-article {
-    display: inline-block;
-    background-color: #fff;
-    border: 1px solid #e80d0d;
-    padding: 20px;
-    height: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: aqua;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 5px;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* estilos para el Form */
-
-
-  .contaioner-form {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .form {
-    background-color: #fff;
-    width: 80%;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    position: relative;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    background-color: #0056b3;
-    text-align: center;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  label {
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="date"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button[type="button"] {
-    background-color: #dc3545;
-    margin-top: 0;
-  }
-  
-
-
-
+button[type="button"] {
+  background-color: #dc3545;
+  margin-top: 0;
+}
