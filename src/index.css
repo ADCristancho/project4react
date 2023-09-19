@@ -1,5 +1,10 @@
-body,html {
+*{
 
-    background-color: rgb(0, 1, 1);
+    margin-left: 1px;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    background-color: rgb(123, 95, 149);
 }

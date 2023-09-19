@@ -1,50 +1,31 @@
-import React, { useState } from 'react';
-import Modal from "./Modal";
-import useFetch from '../hooks/useFetch';
+function UserCard({ user, deleteUsers, setInfoUpdate, updateUsers, handleForm }) {
 
-const UserCard = ({ user, deleteUser, setInfoUpdate, baseUrl }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [, , , , updateApi] = useFetch(baseUrl); 
+    const handleDelete = () => {
+    deleteUsers("/users", user.id);
+    };
 
-  const handleEdit = () => {
+    const handleEdit = () => {
     setInfoUpdate(user);
-    setIsModalOpen(true); 
-  };
+    handleForm()
+    };
 
-  const handleDelete = () => {
-    deleteUser("/users", user.id)
-      .then(() => {
-        updateApi("/users"); 
-      })
-      .catch((error) => {
-        console.error("Error deleting user:", error);
-      });
-  };
-
-  return (
-    <article className='card_users'>
-      <button onClick={handleEdit}>Edit User</button>
-      <div style={{ color: 'white' }}>
-        <h3 style={{ color: 'white' }}>{`#${user.id} ${user.first_name} ${user.last_name}`}</h3>
-        <ul>
-          <li><span style={{ color: 'white' }}>Email: </span><span>{user.email}</span></li>
-          <li><span style={{ color: 'white' }}>Birthday: </span><span>{user.birthday}</span></li>
-        </ul>
-      </div>
-      <div>
+        return (
+    <article>
+        <h3>#{`${user.id} ${user.first_name} ${user.last_name}`}</h3>
+    <ul>
+        <li>
+            <span>Email: </span>
+            <span>{user.email}</span>
+        </li>
+        <li>
+            <span>Birthday: </span>
+            <span>{user.birthday}</span>
+        </li>
+    </ul>
         <button onClick={handleDelete}>Delete</button>
-      </div>
-
-      {isModalOpen && (
-        <Modal
-          user={user}
-          onClose={() => setIsModalOpen(false)}
-          updateUser={updateApi} 
-        />
-      )}
+    <button onClick={handleEdit}>Edit</button>
     </article>
-  );
-};
+);
+}
 
 export default UserCard;
-
